@@ -1,0 +1,586 @@
+<div id="glowscript" class="glowscript">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link type="text/css" href="https://s3.amazonaws.com/glowscript/css/redmond/2.1/jquery-ui.custom.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css" />
+<link type="text/css" href="https://s3.amazonaws.com/glowscript/css/ide.css" rel="stylesheet" />
+<script type="text/javascript" src="https://s3.amazonaws.com/glowscript/lib/jquery/2.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://s3.amazonaws.com/glowscript/lib/jquery/2.1/jquery-ui.custom.min.js"></script>
+<script type="text/javascript" src="https://s3.amazonaws.com/glowscript/package/glow.2.7.min.js"></script>
+<script type="text/javascript" src="https://s3.amazonaws.com/glowscript/package/RSrun.2.7.min.js"></script>
+<script type="text/javascript"><!--//--><![CDATA[//><!--
+;(function() {fontloading();
+ var __rt=srequire('streamline/lib/callbacks/runtime').runtime(__filename, false),__func=__rt.__func,__cb=__rt.__cb; var RS_modules = {};
+RS_modules.pythonize = {};
+
+(function() {
+  function strings() {
+    var string_funcs, exclude, name;
+    string_funcs = set("capitalize strip lstrip rstrip islower isupper isspace lower upper swapcase center count endswith startswith find rfind index rindex format join ljust rjust partition rpartition replace split rsplit splitlines zfill".split(" "));
+    if (!arguments.length) {
+      exclude = (function() {
+        var s = RS_set();
+        s.jsset.add("split");
+        s.jsset.add("replace");
+        return s;
+      })(); }
+     else if (arguments[0]) {
+      exclude = Array.prototype.slice.call(arguments); }
+     else {
+      exclude = null; }  ;
+
+    if (exclude) {
+      string_funcs = string_funcs.difference(set(exclude)); } ;
+
+    var RS_Iter0 = RS_Iterable(string_funcs);
+    for (var RS_Index0 = 0; RS_Index0["<"](RS_Iter0.length); RS_Index0++) {
+      name = RS_Iter0[RS_Index0];
+      (RS_expr_temp = String.prototype)[((((typeof name === "number") && name["<"](0))) ? RS_expr_temp.length["+"](name) : name)] = (RS_expr_temp = RS_str.prototype)[((((typeof name === "number") && name["<"](0))) ? RS_expr_temp.length["+"](name) : name)]; }; };  RS_modules.pythonize.strings = strings;
+})();
+function main(_) { var version, box, sphere, cylinder, pyramid, cone, helix, ellipsoid, ring, arrow, compound, display, vector, print, scene, RS_ls, red, orange, yellow, green, blue, violet, alien_row1, mario_2, alien_row2, mario_1, block2_1, mario_3, alien_row4, mario_4, alien_row5, black_hole1, mario_5, block2_2, mario_6, alien_row7, black_hole2, mario_7, alien_row8, alien_row9, mario_8, alien_row10, mario_9, block3_3, mario_10, alien_row11, mario_11, alien_row12, black_hole3, mario_12, block4_4, mario_13, welcome_shroom, shroom_1, shroom_2, shroom_3, shroom_4, shroom_5, shroom_6, shroom_7, shroom_8, shroom_9, shroom_10, shroom_11, shroom_12, shroom_13, shroom_14, shroom_15, shroom_16, shroom_17, shrooms_list, original_color, wallB, wallC, wallD, bullet, ball, spaceRATE, bulletdt, spacedt, RATE, dt, friction, t1, collided, alien_L, mario_L, second_block, spaceship_1, spaceship_2, spaceship_3, spaceship_4, spaceship_5, spaceship_6, spaceship_7, spaceship_L, shroom_counter, mario_counter, i, t2, shroom, __name__, strings, RS_Iter1, RS_Index1, RS_Iter2, RS_Index2, RS_Iter3, RS_Index3, RS_Iter4, RS_Index4, RS_Iter5, RS_Index5, __this = this;  function make_alien() {
+    var starting_position = ((((((0 === arguments.length["-"](1)) && (arguments[arguments.length["-"](1)] !== null)) && (typeof arguments[arguments.length["-"](1)] === "object")) && (arguments[arguments.length["-"](1)][RS_kwargs_symbol] === true))) ? undefined : arguments[0]);
+    var starting_vel = ((((arguments[1] === undefined) || (((((1 === arguments.length["-"](1)) && (arguments[arguments.length["-"](1)] !== null)) && (typeof arguments[arguments.length["-"](1)] === "object")) && (arguments[arguments.length["-"](1)][RS_kwargs_symbol] === true))))) ? make_alien.__defaults__.starting_vel : arguments[1]);
+    var RS_kwargs_obj = arguments[arguments.length["-"](1)];
+    if ((((RS_kwargs_obj === null) || (typeof RS_kwargs_obj !== "object")) || (RS_kwargs_obj[RS_kwargs_symbol] !== true))) { RS_kwargs_obj = { }; };
+    if (Object.prototype.hasOwnProperty.call(RS_kwargs_obj, "starting_vel")) {
+      starting_vel = RS_kwargs_obj.starting_vel; } ;
+
+    var RS_ls, alien_body, alien_eye1, alien_eye2, alien_hat, alien_objects, com_alien;
+    "34";
+    alien_body = RS_interpolate_kwargs.call(this, sphere, [RS_desugar_kwargs({ size: 1["*"](vector(1, 1, 1)), pos: vector(0, 0, 0), color: color.green }),]);
+    "35";
+    alien_eye1 = RS_interpolate_kwargs.call(this, sphere, [RS_desugar_kwargs({ size: 0.3["*"](vector(1, 1, 1)), pos: 0.42["*"](vector(0.7, 0.5, 0.2)), color: color.white }),]);
+    "36";
+    alien_eye2 = RS_interpolate_kwargs.call(this, sphere, [RS_desugar_kwargs({ size: 0.3["*"](vector(1, 1, 1)), pos: 0.42["*"](vector(0.2, 0.5, 0.7)), color: color.white }),]);
+    "37";
+    alien_hat = RS_interpolate_kwargs.call(this, sphere, [RS_desugar_kwargs({ pos: 0.42["*"](vector(0, 0.9, 0.2["-u"]())), axis: vector(0.02, 0.2, 0.02["-u"]()), size: vector(0.2, 0.7, 0.7), color: color.magenta }),]);
+    "38";
+    alien_objects = RS_list_decorate([alien_body,alien_eye1,alien_eye2,alien_hat,]);
+    "40";
+    com_alien = RS_interpolate_kwargs.call(this, compound, [alien_objects,].concat([RS_desugar_kwargs({ pos: starting_position }),]));
+    "41";
+    com_alien.vel = starting_vel;
+    "42";
+    return com_alien; };
+  function make_alien_row() {
+    var colour = ((((((0 === arguments.length["-"](1)) && (arguments[arguments.length["-"](1)] !== null)) && (typeof arguments[arguments.length["-"](1)] === "object")) && (arguments[arguments.length["-"](1)][RS_kwargs_symbol] === true))) ? undefined : arguments[0]);
+    var starting_position = ((((((1 === arguments.length["-"](1)) && (arguments[arguments.length["-"](1)] !== null)) && (typeof arguments[arguments.length["-"](1)] === "object")) && (arguments[arguments.length["-"](1)][RS_kwargs_symbol] === true))) ? undefined : arguments[1]);
+    var starting_vel = ((((arguments[2] === undefined) || (((((2 === arguments.length["-"](1)) && (arguments[arguments.length["-"](1)] !== null)) && (typeof arguments[arguments.length["-"](1)] === "object")) && (arguments[arguments.length["-"](1)][RS_kwargs_symbol] === true))))) ? make_alien_row.__defaults__.starting_vel : arguments[2]);
+    var RS_kwargs_obj = arguments[arguments.length["-"](1)];
+    if ((((RS_kwargs_obj === null) || (typeof RS_kwargs_obj !== "object")) || (RS_kwargs_obj[RS_kwargs_symbol] !== true))) { RS_kwargs_obj = { }; };
+    if (Object.prototype.hasOwnProperty.call(RS_kwargs_obj, "starting_vel")) {
+      starting_vel = RS_kwargs_obj.starting_vel; } ;
+
+    var RS_ls, wallE, com_alien_row;
+    "46";
+    wallE = RS_interpolate_kwargs.call(this, box, [RS_desugar_kwargs({ color: colour, pos: vector(0, 0, 0), axis: vector(1, 0, 0), size: vector(20, 1, 1.5), opacity: 1 }),]);
+    "47";
+    com_alien_row = RS_interpolate_kwargs.call(this, compound, [RS_list_decorate([wallE,]),].concat([RS_desugar_kwargs({ pos: starting_position }),]));
+    "48";
+    com_alien_row.vel = starting_vel;
+    "49";
+    return com_alien_row; };
+  function make_row2() {
+    var colour = ((((((0 === arguments.length["-"](1)) && (arguments[arguments.length["-"](1)] !== null)) && (typeof arguments[arguments.length["-"](1)] === "object")) && (arguments[arguments.length["-"](1)][RS_kwargs_symbol] === true))) ? undefined : arguments[0]);
+    var starting_position = ((((((1 === arguments.length["-"](1)) && (arguments[arguments.length["-"](1)] !== null)) && (typeof arguments[arguments.length["-"](1)] === "object")) && (arguments[arguments.length["-"](1)][RS_kwargs_symbol] === true))) ? undefined : arguments[1]);
+    var starting_vel = ((((arguments[2] === undefined) || (((((2 === arguments.length["-"](1)) && (arguments[arguments.length["-"](1)] !== null)) && (typeof arguments[arguments.length["-"](1)] === "object")) && (arguments[arguments.length["-"](1)][RS_kwargs_symbol] === true))))) ? make_row2.__defaults__.starting_vel : arguments[2]);
+    var RS_kwargs_obj = arguments[arguments.length["-"](1)];
+    if ((((RS_kwargs_obj === null) || (typeof RS_kwargs_obj !== "object")) || (RS_kwargs_obj[RS_kwargs_symbol] !== true))) { RS_kwargs_obj = { }; };
+    if (Object.prototype.hasOwnProperty.call(RS_kwargs_obj, "starting_vel")) {
+      starting_vel = RS_kwargs_obj.starting_vel; } ;
+
+    var RS_ls, wallE, wallF, com_make_row2;
+    "54";
+    wallE = RS_interpolate_kwargs.call(this, box, [RS_desugar_kwargs({ color: colour, pos: vector(7["-u"](), 0, 0), axis: vector(1, 0, 0), size: vector(12, 1, 1.5), opacity: 1 }),]);
+    "55";
+    wallF = RS_interpolate_kwargs.call(this, box, [RS_desugar_kwargs({ color: colour, pos: vector(12, 0, 0), axis: vec(1, 0, 0), size: vector(12, 1, 1.5), opacity: 1 }),]);
+    "56";
+    com_make_row2 = RS_interpolate_kwargs.call(this, compound, [RS_list_decorate([wallE,wallF,]),].concat([RS_desugar_kwargs({ pos: starting_position }),]));
+    "57";
+    com_make_row2.vel = starting_vel;
+    "58";
+    return com_make_row2; };
+  function make_mario() {
+    var starting_position = ((((((0 === arguments.length["-"](1)) && (arguments[arguments.length["-"](1)] !== null)) && (typeof arguments[arguments.length["-"](1)] === "object")) && (arguments[arguments.length["-"](1)][RS_kwargs_symbol] === true))) ? undefined : arguments[0]);
+    var starting_vel = ((((arguments[1] === undefined) || (((((1 === arguments.length["-"](1)) && (arguments[arguments.length["-"](1)] !== null)) && (typeof arguments[arguments.length["-"](1)] === "object")) && (arguments[arguments.length["-"](1)][RS_kwargs_symbol] === true))))) ? make_mario.__defaults__.starting_vel : arguments[1]);
+    var RS_kwargs_obj = arguments[arguments.length["-"](1)];
+    if ((((RS_kwargs_obj === null) || (typeof RS_kwargs_obj !== "object")) || (RS_kwargs_obj[RS_kwargs_symbol] !== true))) { RS_kwargs_obj = { }; };
+    if (Object.prototype.hasOwnProperty.call(RS_kwargs_obj, "starting_vel")) {
+      starting_vel = RS_kwargs_obj.starting_vel; } ;
+
+    var RS_ls, rand, mario_body1, mario_body2, mario_head, mario_hat, mario_hat2, mario_shoesL, mario_shoesR, mario_shoesWL, mario_shoesWR, mario_legL, mario_legR, mario_moustache, mario_nose, mario_eye1, mario_eye2, mario_arm1, mario_arm2, mario_glove1, mario_glove2, mario_list, com_mario;
+    "63";
+    rand = randcolor();
+    "64";
+    mario_body1 = RS_interpolate_kwargs.call(this, sphere, [RS_desugar_kwargs({ size: 0.8["*"](vector(1, 1, 1)), pos: vector(0, 0, 0), color: rand }),]);
+    "65";
+    mario_body2 = RS_interpolate_kwargs.call(this, sphere, [RS_desugar_kwargs({ size: 0.5["*"](vector(1, 1, 1)), pos: vector(0.2, 0, 0), color: color.blue }),]);
+    "66";
+    mario_head = RS_interpolate_kwargs.call(this, sphere, [RS_desugar_kwargs({ size: 0.8["*"](vector(1, 1, 1)), pos: vector(0, 0.7, 0), color: vector(1, 0.999, 0.7) }),]);
+    "67";
+    mario_hat = RS_interpolate_kwargs.call(this, sphere, [RS_desugar_kwargs({ size: 0.7["*"](vector(1, 1, 1.2)), pos: vector(0, 0.9, 0), color: rand }),]);
+    "68";
+    mario_hat2 = RS_interpolate_kwargs.call(this, sphere, [RS_desugar_kwargs({ size: 0.4["*"](vector(1, 1, 1.2)), pos: vector(0, 0.5, 0), color: rand }),]);
+    "69";
+    mario_shoesL = RS_interpolate_kwargs.call(this, box, [RS_desugar_kwargs({ size: 1.4["*"](vector(0.3, 0.3, 0.3)), pos: vector(0.09, 0.7["-u"](), 0.25["-u"]()), color: rand }),]);
+    "70";
+    mario_shoesR = RS_interpolate_kwargs.call(this, box, [RS_desugar_kwargs({ size: 1.4["*"](vector(0.3, 0.3, 0.3)), pos: vector(0.31["-u"](), 0.7["-u"](), 0.25), color: rand }),]);
+    "71";
+    mario_shoesWL = RS_interpolate_kwargs.call(this, box, [RS_desugar_kwargs({ size: 1.1["*"](vector(0.3, 0.3, 0.3)), pos: vector(0.09, 0.65["-u"](), 0.25["-u"]()), color: rand }),]);
+    "72";
+    mario_shoesWR = RS_interpolate_kwargs.call(this, box, [RS_desugar_kwargs({ size: 1.1["*"](vector(0.3, 0.3, 0.3)), pos: vector(0.31["-u"](), 0.65["-u"](), 0.25), color: rand }),]);
+    "73";
+    mario_legL = RS_interpolate_kwargs.call(this, box, [RS_desugar_kwargs({ size: 0.8["*"](vector(0.6, 0.1, 0.2)), pos: vector(0.000001["-u"](), 0.45["-u"](), 0.2["-u"]()), axis: vector(1["-u"](), 1, 1), color: color.blue }),]);
+    "74";
+    mario_legR = RS_interpolate_kwargs.call(this, box, [RS_desugar_kwargs({ size: 0.8["*"](vector(0.6, 0.1, 0.2)), pos: vector(0.1["-u"](), 0.45["-u"](), 0.2), axis: vector(1, 1, 1["-u"]()), color: color.blue }),]);
+    "75";
+    mario_moustache = RS_interpolate_kwargs.call(this, sphere, [RS_desugar_kwargs({ size: 0.6["*"](vector(1, 0.5, 0.8)), pos: vector(0.15, 0.55, 0), axis: vector(0, 0, 1), color: vector(0.46, 0.28, 0.1) }),]);
+    "76";
+    mario_nose = RS_interpolate_kwargs.call(this, sphere, [RS_desugar_kwargs({ size: 0.2["*"](vector(0.5, 0.5, 0.7)), pos: vector(0.5, 0.55, 0), axis: vector(1, 0.5, 0), color: vector(1, 0.999, 0.7) }),]);
+    "77";
+    mario_eye1 = RS_interpolate_kwargs.call(this, sphere, [RS_desugar_kwargs({ size: 0.4["*"](vector(1, 1, 1)), pos: vector(0.2, 0.7, 0.1["-u"]()), axis: vector(1, 0.5, 0), color: color.white }),]);
+    "78";
+    mario_eye2 = RS_interpolate_kwargs.call(this, sphere, [RS_desugar_kwargs({ size: 0.4["*"](vector(1, 1, 1)), pos: vector(0.2, 0.7, 0.1), axis: vector(1, 0.5, 0), color: color.white }),]);
+    "79";
+    mario_arm1 = RS_interpolate_kwargs.call(this, box, [RS_desugar_kwargs({ size: 0.8["*"](vector(0.6, 0.1, 0.2)), pos: vector(0.000001["-u"](), 0, 0.4), axis: vector(1["-u"](), 1["-u"](), 1), color: color.blue }),]);
+    "80";
+    mario_arm2 = RS_interpolate_kwargs.call(this, box, [RS_desugar_kwargs({ size: 0.8["*"](vector(0.6, 0.1, 0.2)), pos: vector(0.000001["-u"](), 0, 0.4["-u"]()), axis: vector(1["-u"](), 1["-u"](), 1), color: color.blue }),]);
+    "81";
+    mario_glove1 = RS_interpolate_kwargs.call(this, sphere, [RS_desugar_kwargs({ size: 0.35["*"](vector(1, 1, 1)), pos: vector(0.1, 0.2, 0.6["-u"]()), color: color.white }),]);
+    "82";
+    mario_glove2 = RS_interpolate_kwargs.call(this, sphere, [RS_desugar_kwargs({ size: 0.35["*"](vector(1, 1, 1)), pos: vector(0.1["-u"](), 0.2["-u"](), 0.5), color: color.white }),]);
+    "83";
+    mario_list = RS_list_decorate([mario_body1,mario_body2,mario_head,mario_hat,mario_hat2,mario_shoesL,mario_shoesR,mario_shoesWL,mario_shoesWR,mario_legL,mario_legR,mario_moustache,mario_nose,mario_eye1,mario_eye2,mario_arm1,mario_arm2,mario_glove1,mario_glove2,]);
+    "85";
+    com_mario = RS_interpolate_kwargs.call(this, compound, [mario_list,].concat([RS_desugar_kwargs({ pos: starting_position }),]));
+    "86";
+    com_mario.vel = starting_vel;
+    "87";
+    return com_mario; };
+  function make_shroom() {
+    var starting_position = ((((((0 === arguments.length["-"](1)) && (arguments[arguments.length["-"](1)] !== null)) && (typeof arguments[arguments.length["-"](1)] === "object")) && (arguments[arguments.length["-"](1)][RS_kwargs_symbol] === true))) ? undefined : arguments[0]);
+    var starting_vel = ((((arguments[1] === undefined) || (((((1 === arguments.length["-"](1)) && (arguments[arguments.length["-"](1)] !== null)) && (typeof arguments[arguments.length["-"](1)] === "object")) && (arguments[arguments.length["-"](1)][RS_kwargs_symbol] === true))))) ? make_shroom.__defaults__.starting_vel : arguments[1]);
+    var RS_kwargs_obj = arguments[arguments.length["-"](1)];
+    if ((((RS_kwargs_obj === null) || (typeof RS_kwargs_obj !== "object")) || (RS_kwargs_obj[RS_kwargs_symbol] !== true))) { RS_kwargs_obj = { }; };
+    if (Object.prototype.hasOwnProperty.call(RS_kwargs_obj, "starting_vel")) {
+      starting_vel = RS_kwargs_obj.starting_vel; } ;
+
+    var RS_ls, shroom_head, circ, circpath, shroom_eye, shroom_eye2, hat, shroom_circ, shroom_circ2, shroom_circ3, shroom_circ4, shroom_list, com_shroom;
+    "91";
+    shroom_head = RS_interpolate_kwargs.call(this, cylinder, [RS_desugar_kwargs({ size: 0.7["*"](vector(0.8, 0.6, 0.5)), pos: vector(0, 0, 0), color: vector(1, 0.999, 0.7), axis: vector(0, 0.2, 0) }),]);
+    "92";
+    circ = RS_interpolate_kwargs.call(shapes, shapes.circle, [RS_desugar_kwargs({ radius: 3 }),]);
+    "93";
+    circpath = RS_interpolate_kwargs.call(paths, paths.circle, [RS_desugar_kwargs({ radius: 3 }),]);
+    "94";
+    shroom_eye = RS_interpolate_kwargs.call(this, sphere, [RS_desugar_kwargs({ size: 0.2["*"](vector(0.8, 0.5, 0.25)), pos: vector(0.1["-u"](), 0.1, 0.15), axis: vector(0, 1, 0), color: color.black }),]);
+    "95";
+    shroom_eye2 = RS_interpolate_kwargs.call(this, sphere, [RS_desugar_kwargs({ size: 0.2["*"](vector(0.8, 0.5, 0.25)), pos: vector(0.1, 0.1, 0.15), axis: vector(0, 1, 0), color: color.black }),]);
+    "96";
+    hat = RS_interpolate_kwargs.call(this, extrusion, [RS_desugar_kwargs({ path: circpath, shape: circ, color: color.red, size: vector(0.8, 0.53, 0.8), pos: vector(0, 0.5, 0), radius: 5 }),]);
+    "97";
+    shroom_circ = RS_interpolate_kwargs.call(this, sphere, [RS_desugar_kwargs({ size: 0.4["*"](vector(1, 1, 1)), color: color.white, pos: vector(0, 0.5, 0.24), radius: 4 }),]);
+    "98";
+    shroom_circ2 = RS_interpolate_kwargs.call(this, sphere, [RS_desugar_kwargs({ size: 0.4["*"](vector(1, 1, 1)), color: color.white, pos: vector(0, 0.5, 0.24["-u"]()), radius: 4 }),]);
+    "99";
+    shroom_circ3 = RS_interpolate_kwargs.call(this, sphere, [RS_desugar_kwargs({ size: 0.4["*"](vector(1, 1, 1)), color: color.white, pos: vector(0.24, 0.5, 0), radius: 4 }),]);
+    "100";
+    shroom_circ4 = RS_interpolate_kwargs.call(this, sphere, [RS_desugar_kwargs({ size: 0.4["*"](vector(1, 1, 1)), color: color.white, pos: vector(0.24["-u"](), 0.5, 0), radius: 4 }),]);
+    "102";
+    shroom_list = RS_list_decorate([shroom_head,shroom_eye,shroom_eye2,hat,shroom_circ,shroom_circ2,shroom_circ3,shroom_circ4,]);
+    "103";
+    com_shroom = RS_interpolate_kwargs.call(this, compound, [shroom_list,].concat([RS_desugar_kwargs({ pos: starting_position }),]));
+    "104";
+    com_shroom.vel = starting_vel;
+    "105";
+    return com_shroom; };
+  function make_spaceship() {
+    var starting_position = ((((((0 === arguments.length["-"](1)) && (arguments[arguments.length["-"](1)] !== null)) && (typeof arguments[arguments.length["-"](1)] === "object")) && (arguments[arguments.length["-"](1)][RS_kwargs_symbol] === true))) ? undefined : arguments[0]);
+    var starting_vel = ((((arguments[1] === undefined) || (((((1 === arguments.length["-"](1)) && (arguments[arguments.length["-"](1)] !== null)) && (typeof arguments[arguments.length["-"](1)] === "object")) && (arguments[arguments.length["-"](1)][RS_kwargs_symbol] === true))))) ? make_spaceship.__defaults__.starting_vel : arguments[1]);
+    var RS_kwargs_obj = arguments[arguments.length["-"](1)];
+    if ((((RS_kwargs_obj === null) || (typeof RS_kwargs_obj !== "object")) || (RS_kwargs_obj[RS_kwargs_symbol] !== true))) { RS_kwargs_obj = { }; };
+    if (Object.prototype.hasOwnProperty.call(RS_kwargs_obj, "starting_vel")) {
+      starting_vel = RS_kwargs_obj.starting_vel; } ;
+
+    var RS_ls, spaceship_body, alien_cylinder, spaceship_objects, com_spaceship;
+    "109";
+    spaceship_body = RS_interpolate_kwargs.call(this, sphere, [RS_desugar_kwargs({ size: 2["*"](vector(1, 1, 1)), pos: vector(0, 1, 0), color: randcolor() }),]);
+    "110";
+    alien_cylinder = RS_interpolate_kwargs.call(this, cylinder, [RS_desugar_kwargs({ pos: 1["*"](vector(0, 0, 0)), axis: vector(0, 0.05, 0), size: vector(0.95, 5, 4), color: color.gray(0.8) }),]);
+    "111";
+    spaceship_objects = RS_list_decorate([spaceship_body,alien_cylinder,]);
+    "112";
+    com_spaceship = RS_interpolate_kwargs.call(this, compound, [spaceship_objects,].concat([RS_desugar_kwargs({ pos: starting_position }),]));
+    "113";
+    com_spaceship.vel = starting_vel;
+    "114";
+    return com_spaceship; };
+
+
+  function keydown_fun(event) {
+    var RS_ls, key, ri, amt;
+    "284";
+    ball.color = randcolor();
+    "285";
+    key = event.key;
+    "286";
+    ri = randint(0, 10);
+    "288";
+    amt = 1;
+    "289";
+    if (((((key === "up") || ((typeof key === "object") && RS_equals(key, "up")))) || RS_in(key, "wWiI"))) {
+      "290";
+      ball.vel = ball.vel["+"](vector(0, 0, amt["-u"]()));
+      "291"; }
+     else if (((((key === "left") || ((typeof key === "object") && RS_equals(key, "left")))) || RS_in(key, "aAjJ"))) {
+      "292";
+      ball.vel = ball.vel["+"](vector(amt["-u"](), 0, 0));
+      "293"; }
+     else if (((((key === "down") || ((typeof key === "object") && RS_equals(key, "down")))) || RS_in(key, "sSkK"))) {
+      "294";
+      ball.vel = ball.vel["+"](vector(0, 0, amt));
+      "295"; }
+     else if (((((key === "right") || ((typeof key === "object") && RS_equals(key, "right")))) || RS_in(key, "dDlL"))) {
+      "296";
+      ball.vel = ball.vel["+"](vector(amt, 0, 0));
+      "297"; }
+     else if (RS_in(key, "rR")) {
+      "298";
+      ball.vel = vector(0, 0, 0);
+      "299";
+      ball.pos = vector(0, 0, 0);
+      "300"; }
+     else if (RS_in(key, " ")) {
+      "301";
+      bullet.visible = true; }      ; };  function choice(L) {
+    var RS_ls, LEN, randomindex;
+    "306";
+    LEN = len(L);
+    "307";
+    randomindex = int(LEN["*"](random()));
+    "308";
+    return L[((((typeof randomindex === "number") && randomindex["<"](0))) ? L.length["+"](randomindex) : randomindex)]; };
+
+
+  function randint(low, hi) {
+    var RS_ls, RS_unpack, LEN, randvalue;
+    "313";
+    if (hi["<"](low)) {
+      "314";
+      RS_unpack = [hi,low,];
+      low = RS_unpack[0];
+      hi = RS_unpack[1]; } ;
+
+    "315";
+    LEN = int(hi)["-"](int(low))["+"](1);
+    "316";
+    randvalue = LEN["*"](random());
+    "317";
+    return int(randvalue); };
+
+
+  function randcolor() {
+    var RS_ls, red, orange, yellow, green, blue, violet, randcolor;
+    "320";
+    red = vector(1, 0, 0);
+    "321";
+    orange = vector(1, 0.309, 0);
+    "322";
+    yellow = vector(1, 1, 0);
+    "323";
+    green = vector(0, 1, 0);
+    "324";
+    blue = vector(0, 0, 1);
+    "325";
+    violet = vector(1, 0, 1);
+    "326";
+    randcolor = choice(RS_list_decorate([red,orange,yellow,green,blue,violet,]));
+    "327";
+    return randcolor; };  function corral_collide(ball) {
+    var RS_ls, change_color, first_block, second_block, black_holes, i;
+    "332";
+    change_color = randcolor();
+    "333";
+    first_block = RS_list_decorate([alien_row1,alien_row2,alien_row4,alien_row5,alien_row7,alien_row8,alien_row9,alien_row10,alien_row11,alien_row12,]);
+    "334";
+    second_block = RS_list_decorate([block2_1,block2_2,block3_3,block4_4,]);
+    "335";
+    black_holes = RS_list_decorate([black_hole1,black_hole2,black_hole3,]);
+    "337";
+    if (ball.pos.x["<"](wallB.pos.x["+"](1))) {
+      "338";
+      ball.pos.x = wallB.pos.x["+"](1);
+      "339";
+      ball.vel.x = ball.vel.x["*="](1["-u"]());
+      "340";
+      wallB.color = change_color;
+      "341";
+      wallC.color = change_color;
+      "342";
+      wallD.color = change_color; } ;
+
+    "343";
+    if (ball.pos.x[">"](wallC.pos.x["-"](1))) {
+      "344";
+      ball.pos.x = wallC.pos.x["-"](1);
+      "345";
+      ball.vel.x = ball.vel.x["*="](1["-u"]());
+      "346";
+      wallC.color = change_color;
+      "347";
+      wallB.color = change_color;
+      "348";
+      wallD.color = change_color; } ;
+
+    "349";
+    if (ball.pos.z["<"](wallD.pos.z)) {
+      "350";
+      ball.pos.z = wallD.pos.z;
+      "351";
+      ball.vel.z = ball.vel.z["*="](1["-u"]());
+      "352";
+      wallD.color = change_color;
+      "353";
+      wallB.color = change_color;
+      "354";
+      wallC.color = change_color; } ;
+
+    "355";
+    if (ball.pos.z[">"](0)) {
+      "356";
+      ball.pos.z = 0;
+      "357";
+      ball.vel.z = ball.vel.z["*="](1["-u"]()); } ;
+
+    "358";
+    var RS_Iter6 = RS_Iterable(range(len(black_holes)));
+    for (var RS_Index6 = 0; RS_Index6["<"](RS_Iter6.length); RS_Index6++) {
+      i = RS_Iter6[RS_Index6];
+      "359";
+      if (mag(ball.pos["-"](black_holes[((((typeof i === "number") && i["<"](0))) ? black_holes.length["+"](i) : i)].pos))["<"](1)) {
+        "360";
+        ball.pos = vec(0, 0, 0); } ; };
+
+
+    "363";
+    var RS_Iter7 = RS_Iterable(range(len(first_block)));
+    for (var RS_Index7 = 0; RS_Index7["<"](RS_Iter7.length); RS_Index7++) {
+      i = RS_Iter7[RS_Index7];
+      "364";
+      if ((((ball.pos.z["<"](first_block[((((typeof i === "number") && i["<"](0))) ? first_block.length["+"](i) : i)].pos.z["+"](0.75)) && ball.pos.z[">"](first_block[((((typeof i === "number") && i["<"](0))) ? first_block.length["+"](i) : i)].pos.z["-"](0.75))) && ball.pos.x[">"](first_block[((((typeof i === "number") && i["<"](0))) ? first_block.length["+"](i) : i)].pos.x["-"](10))) && ball.pos.x["<"](first_block[((((typeof i === "number") && i["<"](0))) ? first_block.length["+"](i) : i)].pos.x["+"](10)))) {
+        "365";
+        ball.pos.z = ball.pos.z;
+        "366";
+        ball.pos.x = ball.pos.x;
+        "367";
+        ball.vel.z = ball.vel.z["*="](1["-u"]());
+        "368";
+        ball.vel.x = ball.vel.x["*="](1["-u"]()); } ; };
+
+
+    "369";
+    var RS_Iter8 = RS_Iterable(range(len(second_block)));
+    for (var RS_Index8 = 0; RS_Index8["<"](RS_Iter8.length); RS_Index8++) {
+      i = RS_Iter8[RS_Index8];
+      "370";
+      if ((((ball.pos.z["<"](second_block[((((typeof i === "number") && i["<"](0))) ? second_block.length["+"](i) : i)].pos.z["+"](0.75)) && ball.pos.z[">"](second_block[((((typeof i === "number") && i["<"](0))) ? second_block.length["+"](i) : i)].pos.z["-"](0.75))) && ball.pos.x[">"](second_block[((((typeof i === "number") && i["<"](0))) ? second_block.length["+"](i) : i)].pos.x["+"](3))) && ball.pos.x["<"](second_block[((((typeof i === "number") && i["<"](0))) ? second_block.length["+"](i) : i)].pos.x["+"](18)))) {
+        "371";
+        ball.pos.z = ball.pos.z;
+        "372";
+        ball.pos.z = ball.pos.z;
+        "373";
+        ball.pos.x = ball.pos.x;
+        "374";
+        ball.vel.z = ball.vel.z["*="](1["-u"]());
+        "375";
+        ball.vel.x = ball.vel.x["*="](1["-u"]()); } ;
+
+      "376";
+      if ((((ball.pos.z["<"](second_block[((((typeof i === "number") && i["<"](0))) ? second_block.length["+"](i) : i)].pos.z["+"](0.75)) && ball.pos.z[">"](second_block[((((typeof i === "number") && i["<"](0))) ? second_block.length["+"](i) : i)].pos.z["-"](0.75))) && ball.pos.x["<"](second_block[((((typeof i === "number") && i["<"](0))) ? second_block.length["+"](i) : i)].pos.x["-"](3))) && ball.pos.x[">"](second_block[((((typeof i === "number") && i["<"](0))) ? second_block.length["+"](i) : i)].pos.x["-"](16)))) {
+        "377";
+        ball.pos.z = ball.pos.z;
+        "378";
+        ball.pos.z = ball.pos.z;
+        "379";
+        ball.pos.x = ball.pos.x;
+        "380";
+        ball.vel.z = ball.vel.z["*="](1["-u"]());
+        "381";
+        ball.vel.x = ball.vel.x["*="](1["-u"]()); } ; };
+
+
+    "382";
+    var RS_Iter9 = RS_Iterable(range(len(mario_L)));
+    for (var RS_Index9 = 0; RS_Index9["<"](RS_Iter9.length); RS_Index9++) {
+      i = RS_Iter9[RS_Index9];
+      "383";
+      if (mario_L[((((typeof i === "number") && i["<"](0))) ? mario_L.length["+"](i) : i)].visible) {
+        "384";
+        if (mag(ball.pos["-"](mario_L[((((typeof i === "number") && i["<"](0))) ? mario_L.length["+"](i) : i)].pos))["<"](3)) {
+          "385";
+          ball.vel = vector(0, 0, 0);
+          "386";
+          ball.pos = vector(0, 0, 0); } ; } ; }; };
+
+  function alien_collide(ball) {
+    var RS_ls, change_color;
+    "397";
+    change_color = randcolor();
+    "400";
+    if (ball.pos.x["<"](wallB.pos.x["+"](10))) {
+      "401";
+      ball.pos.x = wallB.pos.x["+"](10);
+      "402";
+      ball.vel.x = ball.vel.x["*="](1["-u"]()); } ;
+
+    "403";
+    if (ball.pos.x[">"](wallC.pos.x["-"](10))) {
+      "404";
+      ball.pos.x = wallC.pos.x["-"](10);
+      "405";
+      ball.vel.x = ball.vel.x["*="](1["-u"]()); } ;
+
+    "406";
+    if (ball.pos.z["<"](wallD.pos.z)) {
+      "407";
+      ball.pos.z = wallD.pos.z;
+      "408";
+      ball.vel.z = ball.vel.z["*="](1["-u"]()); } ; };  function row2_collide(ball) {
+    var RS_ls, change_color;
+    "413";
+    change_color = randcolor();
+    "416";
+    if (ball.pos.x["<"](wallB.pos.x["+"](16))) {
+      "417";
+      ball.pos.x = wallB.pos.x["+"](16);
+      "418";
+      ball.vel.x = ball.vel.x["*="](1["-u"]()); } ;
+
+    "419";
+    if (ball.pos.x[">"](wallC.pos.x["-"](16))) {
+      "420";
+      ball.pos.x = wallC.pos.x["-"](16);
+      "421";
+      ball.vel.x = ball.vel.x["*="](1["-u"]()); } ; };  function space_collide(ball) {
+    var RS_ls;
+    "427";
+    if (ball.pos.x["<"](wallB.pos.x["+"](5))) {
+      "428";
+      ball.pos.x = wallB.pos.x["+"](5);
+      "429";
+      ball.vel.x = ball.vel.x["*="](1["-u"]()); } ;
+
+    "430";
+    if (ball.pos.x[">"](wallC.pos.x["-"](5))) {
+      "431";
+      ball.pos.x = wallC.pos.x["-"](5);
+      "432";
+      ball.vel.x = ball.vel.x["*="](1["-u"]()); } ;
+
+    "435";
+    if (ball.pos.y[">"](20)) {
+      "436";
+      ball.pos.y = 20;
+      "437";
+      ball.vel.y = ball.vel.y["*="](1["-u"]()); } ;
+
+    "439";
+    if (ball.pos.y["<"](6)) {
+      "440";
+      ball.pos.y = 6;
+      "441";
+      ball.vel.y = ball.vel.y["*="](1["-u"]()); } ;
+
+    "442";
+    if (ball.pos.z["<"](wallD.pos.z)) {
+      "443";
+      ball.pos.z = wallD.pos.z;
+      "444";
+      ball.vel.z = ball.vel.z["*="](1["-u"]()); } ; };  function mario_collide(mario, mario_counter) {
+    var RS_ls, i;
+    "453";
+    if (mario.pos.x["<"](wallB.pos.x["+"](2))) {
+      "454";
+      mario.pos.x = wallB.pos.x["+"](2);
+      "455";
+      mario.vel.x = mario.vel.x["*="](1["-u"]());
+      "456";
+      mario.vel.z = mario.vel.z["*="](1["-u"]()); } ;
+
+    "458";
+    if (mario.pos.x[">"](wallC.pos.x["-"](2))) {
+      "459";
+      mario.pos.x = wallC.pos.x["-"](2);
+      "460";
+      mario.vel.x = mario.vel.x["*="](1["-u"]());
+      "461";
+      mario.vel.z = mario.vel.z["*="](1); } ;
+
+    "462";
+    var RS_Iter10 = RS_Iterable(range(len(alien_L)));
+    for (var RS_Index10 = 0; RS_Index10["<"](RS_Iter10.length); RS_Index10++) {
+      i = RS_Iter10[RS_Index10];
+      "463";
+      if ((mario.pos.z["<"](alien_L[((((typeof i === "number") && i["<"](0))) ? alien_L.length["+"](i) : i)].pos.z["+"](0.75)) && mario.pos.z[">"](alien_L[((((typeof i === "number") && i["<"](0))) ? alien_L.length["+"](i) : i)].pos.z["-"](0.75)))) {
+        "464";
+        mario.vel.z = mario.vel.z["*="](1["-u"]()); } ; };
+
+
+    "465";
+    var RS_Iter11 = RS_Iterable(range(len(mario_L)));
+    for (var RS_Index11 = 0; RS_Index11["<"](RS_Iter11.length); RS_Index11++) {
+      i = RS_Iter11[RS_Index11];
+      "466";
+      if (bullet.visible) {
+        "467";
+        if (mag(bullet.pos["-"](mario_L[((((typeof i === "number") && i["<"](0))) ? mario_L.length["+"](i) : i)].pos))["<"](3)) {
+          "468";
+          mario_L[((((typeof i === "number") && i["<"](0))) ? mario_L.length["+"](i) : i)].pos.y = 100;
+          "mario_counter= mario_counter + 1\n                print(\"Number of Marios destroyed is: \" + mario_counter)\n                ";
+          "472";
+          print("Marios destroyed: "["+"](mario_counter["+"](1)));
+          "473";
+          return 1; } ; } ; };    "474";
+    return 0; };
+
+
+  function bullet_collide(bullet) {
+    var RS_ls;
+    "484";
+    if (bullet.pos.x["<"](wallB.pos.x)) {
+      "485";
+      bullet.visible = false;
+      "486";
+      bullet.pos = ball.pos; } ;
+
+    "487";
+    if (bullet.pos.x[">"](wallC.pos.x)) {
+      "488";
+      bullet.pos = ball.pos;
+      "489";
+      bullet.visible = false; } ;
+
+    "490";
+    if (bullet.pos.y[">"](20)) {
+      "491";
+      bullet.pos = ball.pos;
+      "492";
+      bullet.visible = false; } ;
+
+    "493";
+    if (mag(bullet.pos["-"](ball.pos))[">"](15)) {
+      "494";
+      bullet.pos = ball.pos;
+      "495";
+      bullet.visible = false; } ; };  function star_maker() {
+    var RS_ls, x;
+    "501";
+    for (var RS_Index12 = 0; RS_Index12["<"](1000); RS_Index12++) {
+      x = RS_Index12;
+      "502";
+      RS_interpolate_kwargs.call(this, points, [RS_desugar_kwargs({ pos: vector(choice(list(range(30["-u"](), 30))), choice(list(range(10["-u"](), 10))), choice(list(range(1000["-u"](), 40)))), radius: 2, color: vector(1, 0.996, 0.904) }),]); }; }; var __frame = { name: "main", line: 32 }; return __func(_, this, arguments, main, 0, __frame, function __$main() { version = RS_list_decorate(["2.7","glowscript",]); Array.prototype["+"] = function(r) { return this.concat(r); }; Array.prototype["*"] = function(r) { return __array_times_number(this, r); }; __name__ = "__main__"; window.__GSlang = "vpython"; box = vp_box; sphere = vp_sphere; cylinder = vp_cylinder; pyramid = vp_pyramid; cone = vp_cone; helix = vp_helix; ellipsoid = vp_ellipsoid; ring = vp_ring; arrow = vp_arrow; compound = vp_compound; display = canvas; vector = vec; print = GSprint; scene = canvas(); return waitforfonts(__cb(_, __frame, 21, 4, function __$main() { strings = RS_modules.pythonize.strings; strings(); "12"; scene.bind("keydown", keydown_fun); "14"; scene.background = color.black; "16"; scene.width = 1000; "17"; scene.height = 550; "18"; scene.userspin = false; "19"; scene.range = 10; "20"; scene.userzoom = false; "21"; scene.forward = vector(0, 0.15["-u"](), 1["-u"]()); "22"; scene.ambient = color.white; "25"; if (!make_alien.__defaults__) { Object.defineProperties(make_alien, { __defaults__: { value: { starting_vel: vector(0, 0, 0) } }, __handles_kwarg_interpolation__: { value: true }, __argnames__: { value: ["starting_position","starting_vel",] } }); } ; "43"; if (!make_alien_row.__defaults__) { Object.defineProperties(make_alien_row, { __defaults__: { value: { starting_vel: vector(1, 0, 0) } }, __handles_kwarg_interpolation__: { value: true }, __argnames__: { value: ["colour","starting_position","starting_vel",] } }); } ; "51"; if (!make_row2.__defaults__) { Object.defineProperties(make_row2, { __defaults__: { value: { starting_vel: vector(1, 0, 0) } }, __handles_kwarg_interpolation__: { value: true }, __argnames__: { value: ["colour","starting_position","starting_vel",] } }); } ; "60"; if (!make_mario.__defaults__) { Object.defineProperties(make_mario, { __defaults__: { value: { starting_vel: vec(1, 0, 0) } }, __handles_kwarg_interpolation__: { value: true }, __argnames__: { value: ["starting_position","starting_vel",] } }); } ; "88"; if (!make_shroom.__defaults__) { Object.defineProperties(make_shroom, { __defaults__: { value: { starting_vel: vec(0, 0, 0) } }, __handles_kwarg_interpolation__: { value: true }, __argnames__: { value: ["starting_position","starting_vel",] } }); } ; "107"; if (!make_spaceship.__defaults__) { Object.defineProperties(make_spaceship, { __defaults__: { value: { starting_vel: vector(0, 0, 0) } }, __handles_kwarg_interpolation__: { value: true }, __argnames__: { value: ["starting_position","starting_vel",] } }); } ; "115"; red = vector(1, 0, 0); "116"; orange = vector(1, 0.309, 0); "117"; yellow = vector(1, 1, 0); "118"; green = vector(0, 1, 0); "119"; blue = vector(0, 0, 1); "120"; violet = vector(1, 0, 1); "121"; alien_row1 = RS_interpolate_kwargs.call(__this, make_alien_row, [red,].concat([RS_desugar_kwargs({ starting_position: vector(choice(list(range(15["-u"](), 15))), 0, 20["-u"]()), starting_vel: vector(10, 0, 0) }),])); "122"; mario_2 = RS_interpolate_kwargs.call(__this, make_mario, [RS_desugar_kwargs({ starting_position: vec(choice(range(14["-u"](), 14)), 0, 45["-u"]()), starting_vel: vector(5, 0, 1) }),]); "123"; alien_row2 = RS_interpolate_kwargs.call(__this, make_alien_row, [orange,].concat([RS_desugar_kwargs({ starting_position: vector(choice(list(range(15["-u"](), 15))), 0, 50["-u"]()), starting_vel: vector(10["-u"](), 0, 0) }),])); "124"; mario_1 = RS_interpolate_kwargs.call(__this, make_mario, [RS_desugar_kwargs({ starting_position: vec(choice(range(14["-u"](), 14)), 0, 75["-u"]()), starting_vel: vector(5, 0, 1) }),]); "125"; block2_1 = RS_interpolate_kwargs.call(__this, make_row2, [yellow,].concat([RS_desugar_kwargs({ starting_position: vector(0, 0, 80["-u"]()), starting_vel: vector(10, 0, 0) }),])); "126"; mario_3 = RS_interpolate_kwargs.call(__this, make_mario, [RS_desugar_kwargs({ starting_position: vec(choice(range(14["-u"](), 14)), 0, 105["-u"]()), starting_vel: vector(5, 0, 1) }),]); "127"; alien_row4 = RS_interpolate_kwargs.call(__this, make_alien_row, [green,].concat([RS_desugar_kwargs({ starting_position: vector(choice(list(range(15["-u"](), 15))), 0, 110["-u"]()), starting_vel: vector(10["-u"](), 0, 0) }),])); "128"; mario_4 = RS_interpolate_kwargs.call(__this, make_mario, [RS_desugar_kwargs({ starting_position: vec(choice(range(14["-u"](), 14)), 0, 135["-u"]()), starting_vel: vector(5, 0, 1) }),]); "129"; alien_row5 = RS_interpolate_kwargs.call(__this, make_alien_row, [blue,].concat([RS_desugar_kwargs({ starting_position: vector(choice(list(range(15["-u"](), 15))), 0, 140["-u"]()), starting_vel: vector(10, 0, 0) }),])); "130"; black_hole1 = RS_interpolate_kwargs.call(__this, cylinder, [RS_desugar_kwargs({ pos: vec(0, 0, 152.5["-u"]()), color: color.blue, axis: vec(0, 1, 0), size: vec(0.05, 1, 1) }),]); "131"; mario_5 = RS_interpolate_kwargs.call(__this, make_mario, [RS_desugar_kwargs({ starting_position: vec(choice(range(14["-u"](), 14)), 0, 165["-u"]()), starting_vel: vector(5, 0, 1) }),]); "132"; block2_2 = RS_interpolate_kwargs.call(__this, make_row2, [violet,].concat([RS_desugar_kwargs({ starting_position: vector(0, 0, 170["-u"]()), starting_vel: vector(10, 0, 0) }),])); "133"; mario_6 = RS_interpolate_kwargs.call(__this, make_mario, [RS_desugar_kwargs({ starting_position: vec(choice(range(14["-u"](), 14)), 0, 195["-u"]()), starting_vel: vector(5, 0, 1) }),]); "134"; alien_row7 = RS_interpolate_kwargs.call(__this, make_alien_row, [red,].concat([RS_desugar_kwargs({ starting_position: vector(choice(list(range(15["-u"](), 15))), 0, 200["-u"]()), starting_vel: vector(10, 0, 0) }),])); "135"; black_hole2 = RS_interpolate_kwargs.call(__this, cylinder, [RS_desugar_kwargs({ pos: vec(0, 0, 215["-u"]()), color: color.blue, axis: vec(0, 1, 0), size: vec(0.05, 1, 1) }),]); "136"; mario_7 = RS_interpolate_kwargs.call(__this, make_mario, [RS_desugar_kwargs({ starting_position: vec(choice(range(14["-u"](), 14)), 0, 225["-u"]()), starting_vel: vector(5, 0, 1) }),]); "137"; alien_row8 = RS_interpolate_kwargs.call(__this, make_alien_row, [orange,].concat([RS_desugar_kwargs({ starting_position: vector(choice(list(range(15["-u"](), 15))), 0, 230["-u"]()), starting_vel: vector(10["-u"](), 0, 0) }),])); "138"; alien_row9 = RS_interpolate_kwargs.call(__this, make_alien_row, [yellow,].concat([RS_desugar_kwargs({ starting_position: vector(choice(list(range(15["-u"](), 15))), 0, 260["-u"]()), starting_vel: vector(10, 0, 0) }),])); "139"; mario_8 = RS_interpolate_kwargs.call(__this, make_mario, [RS_desugar_kwargs({ starting_position: vec(choice(range(14["-u"](), 14)), 0, 285["-u"]()), starting_vel: vector(5, 0, 1) }),]); "140"; alien_row10 = RS_interpolate_kwargs.call(__this, make_alien_row, [green,].concat([RS_desugar_kwargs({ starting_position: vector(choice(list(range(15["-u"](), 15))), 0, 265["-u"]()), starting_vel: vector(10["-u"](), 0, 0) }),])); "141"; mario_9 = RS_interpolate_kwargs.call(__this, make_mario, [RS_desugar_kwargs({ starting_position: vec(choice(range(14["-u"](), 14)), 0, 290["-u"]()), starting_vel: vector(5, 0, 1) }),]); "142"; block3_3 = RS_interpolate_kwargs.call(__this, make_row2, [blue,].concat([RS_desugar_kwargs({ starting_position: vector(0, 0, 295["-u"]()), starting_vel: vector(10, 0, 0) }),])); "143"; mario_10 = RS_interpolate_kwargs.call(__this, make_mario, [RS_desugar_kwargs({ starting_position: vec(choice(range(14["-u"](), 14)), 0, 320["-u"]()), starting_vel: vector(5, 0, 1) }),]); "144"; alien_row11 = RS_interpolate_kwargs.call(__this, make_alien_row, [violet,].concat([RS_desugar_kwargs({ starting_position: vector(choice(list(range(15["-u"](), 15))), 0, 325["-u"]()), starting_vel: vector(10["-u"](), 0, 0) }),])); "145"; mario_11 = RS_interpolate_kwargs.call(__this, make_mario, [RS_desugar_kwargs({ starting_position: vec(choice(range(14["-u"](), 14)), 0, 350["-u"]()), starting_vel: vector(5, 0, 1) }),]); "146"; alien_row12 = RS_interpolate_kwargs.call(__this, make_alien_row, [red,].concat([RS_desugar_kwargs({ starting_position: vector(choice(list(range(15["-u"](), 15))), 0, 355["-u"]()), starting_vel: vector(10, 0, 0) }),])); "147"; black_hole3 = RS_interpolate_kwargs.call(__this, cylinder, [RS_desugar_kwargs({ pos: vec(0, 0, 367.5["-u"]()), color: color.blue, axis: vec(0, 1, 0), size: vec(0.05, 1, 1) }),]); "148"; mario_12 = RS_interpolate_kwargs.call(__this, make_mario, [RS_desugar_kwargs({ starting_position: vec(choice(range(14["-u"](), 14)), 0, 380["-u"]()), starting_vel: vector(5, 0, 1) }),]); "149"; block4_4 = RS_interpolate_kwargs.call(__this, make_row2, [violet,].concat([RS_desugar_kwargs({ starting_position: vector(0, 0, 385["-u"]()), starting_vel: vector(10, 0, 0) }),])); "150"; mario_13 = RS_interpolate_kwargs.call(__this, make_mario, [RS_desugar_kwargs({ starting_position: vec(choice(range(14["-u"](), 14)), 0, 410["-u"]()), starting_vel: vector(5, 0, 1) }),]); "151"; welcome_shroom = RS_interpolate_kwargs.call(__this, make_shroom, [RS_desugar_kwargs({ starting_position: vec(10, 0, 5["-u"]()), starting_vel: vector(0, 0, 1["-u"]()) }),]); "152"; shroom_1 = RS_interpolate_kwargs.call(__this, make_shroom, [RS_desugar_kwargs({ starting_position: vec(13, 0, 45["-u"]()), starting_vel: vector(0, 0, 0) }),]); "153"; shroom_2 = RS_interpolate_kwargs.call(__this, make_shroom, [RS_desugar_kwargs({ starting_position: vec(10, 0, 45["-u"]()), starting_vel: vector(0, 0, 0) }),]); "154"; shroom_3 = RS_interpolate_kwargs.call(__this, make_shroom, [RS_desugar_kwargs({ starting_position: vec(5, 0, 45["-u"]()), starting_vel: vector(0, 0, 0) }),]); "155"; shroom_4 = RS_interpolate_kwargs.call(__this, make_shroom, [RS_desugar_kwargs({ starting_position: vec(6, 0, 45["-u"]()), starting_vel: vector(0, 0, 0) }),]); "156"; shroom_5 = RS_interpolate_kwargs.call(__this, make_shroom, [RS_desugar_kwargs({ starting_position: vec(13["-u"](), 0, 75["-u"]()), starting_vel: vector(0, 0, 0) }),]); "157"; shroom_6 = RS_interpolate_kwargs.call(__this, make_shroom, [RS_desugar_kwargs({ starting_position: vec(9["-u"](), 0, 75["-u"]()), starting_vel: vector(0, 0, 0) }),]); "158"; shroom_7 = RS_interpolate_kwargs.call(__this, make_shroom, [RS_desugar_kwargs({ starting_position: vec(0, 0, 80["-u"]()), starting_vel: vector(0, 0, 0) }),]); "159"; shroom_8 = RS_interpolate_kwargs.call(__this, make_shroom, [RS_desugar_kwargs({ starting_position: vec(7["-u"](), 0, 75["-u"]()), starting_vel: vector(0, 0, 0) }),]); "160"; shroom_9 = RS_interpolate_kwargs.call(__this, make_shroom, [RS_desugar_kwargs({ starting_position: vec(7["-u"](), 0, 95["-u"]()), starting_vel: vector(0, 0, 0) }),]); "161"; shroom_10 = RS_interpolate_kwargs.call(__this, make_shroom, [RS_desugar_kwargs({ starting_position: vec(6, 0, 95["-u"]()), starting_vel: vector(0, 0, 0) }),]); "162"; shroom_11 = RS_interpolate_kwargs.call(__this, make_shroom, [RS_desugar_kwargs({ starting_position: vec(14, 0, 95["-u"]()), starting_vel: vector(0, 0, 0) }),]); "163"; shroom_12 = RS_interpolate_kwargs.call(__this, make_shroom, [RS_desugar_kwargs({ starting_position: vec(0, 0, 175["-u"]()), starting_vel: vector(0, 0, 0) }),]); "164"; shroom_13 = RS_interpolate_kwargs.call(__this, make_shroom, [RS_desugar_kwargs({ starting_position: vec(4, 0, 175["-u"]()), starting_vel: vector(0, 0, 0) }),]); "165"; shroom_14 = RS_interpolate_kwargs.call(__this, make_shroom, [RS_desugar_kwargs({ starting_position: vec(8, 0, 195["-u"]()), starting_vel: vector(0, 0, 0) }),]); "166"; shroom_15 = RS_interpolate_kwargs.call(__this, make_shroom, [RS_desugar_kwargs({ starting_position: vec(9, 0, 195["-u"]()), starting_vel: vector(0, 0, 1) }),]); "167"; shroom_16 = RS_interpolate_kwargs.call(__this, make_shroom, [RS_desugar_kwargs({ starting_position: vec(6, 0, 200["-u"]()), starting_vel: vector(0, 0, 0) }),]); "168"; shroom_17 = RS_interpolate_kwargs.call(__this, make_shroom, [RS_desugar_kwargs({ starting_position: vec(14, 0, 200["-u"]()), starting_vel: vector(0, 0, 0) }),]); "169"; shrooms_list = RS_list_decorate([welcome_shroom,shroom_1,shroom_2,shroom_3,shroom_4,shroom_5,shroom_6,shroom_7,shroom_8,shroom_9,shroom_10,shroom_11,shroom_12,shroom_13,shroom_14,shroom_15,shroom_16,shroom_17,]); "170"; RS_interpolate_kwargs.call(__this, text, [RS_desugar_kwargs({ text: "Hit the welcome shroom for good luck!", align: "center", depth: 0.3["-u"](), color: color.green, pos: vector(10, 5, 5["-u"]()) }),]); "177"; original_color = randcolor(); "178"; wallB = RS_interpolate_kwargs.call(__this, box, [RS_desugar_kwargs({ pos: vector(20["-u"](), 0, 0), axis: vector(0, 0, 1), size: vector(1600, 2, 1), color: original_color, opacity: 1 }),]); "179"; wallC = RS_interpolate_kwargs.call(__this, box, [RS_desugar_kwargs({ pos: vector(20, 0, 0), axis: vector(0, 0, 1), size: vector(1600, 2, 1), color: original_color, opacity: 1 }),]); "180"; wallD = RS_interpolate_kwargs.call(__this, box, [RS_desugar_kwargs({ pos: vector(0, 0, 500["-u"]()), axis: vector(1, 0, 0), size: vector(10, 2, 1), color: color.black }),]); "181"; RS_interpolate_kwargs.call(__this, text, [RS_desugar_kwargs({ text: "GAME OVER", align: "center", depth: 0.3["-u"](), color: color.green, pos: vector(0, 0, 490["-u"]()) }),]); "182"; star_maker(); "184"; bullet = RS_interpolate_kwargs.call(__this, cylinder, [RS_desugar_kwargs({ size: 0.4["*"](vector(1, 1, 1)), color: color.green }),]); "185"; bullet.vel = vec(0, 0, 0); "186"; ball = RS_interpolate_kwargs.call(__this, sphere, [RS_desugar_kwargs({ size: 1["*"](vector(1, 1, 1)), color: vector(0.8, 0.5, 0) }),]); "187"; ball.vel = vector(0, 0, 0); "191"; spaceRATE = 10; "192"; bulletdt = 1["/"](5); "193"; spacedt = 1["/"](1["*"](spaceRATE)); "194"; RATE = 30; "195"; dt = 1["/"](1["*"](RATE)); "196"; scene.autoscale = false; "197"; scene.center = vector(5, 10, 5); "198"; scene.camera.follow(ball); "199"; friction = 1; "201"; t1 = clock(); "204"; collided = false; "205"; alien_L = RS_list_decorate([alien_row1,alien_row2,alien_row4,alien_row5,alien_row7,alien_row8,alien_row9,alien_row10,alien_row11,alien_row12,alien_row12,]); "206"; mario_L = RS_list_decorate([mario_1,mario_2,mario_3,mario_4,mario_5,mario_6,mario_7,mario_8,mario_9,mario_10,mario_11,mario_12,mario_13,]); "207"; second_block = RS_list_decorate([block2_1,block2_2,block3_3,block4_4,]); "208"; bullet.visible = false; "209"; bullet.pos = ball.pos; "211"; spaceship_1 = RS_interpolate_kwargs.call(__this, make_spaceship, [RS_desugar_kwargs({ starting_position: vector(choice(list(range(15["-u"](), 15))), 8, 10["-u"]()), starting_vel: vector(1["-u"](), 1, 0) }),]); "212"; spaceship_2 = RS_interpolate_kwargs.call(__this, make_spaceship, [RS_desugar_kwargs({ starting_position: vector(choice(list(range(15["-u"](), 15))), 8, 50["-u"]()), starting_vel: vector(1, 1, 0) }),]); "213"; spaceship_3 = RS_interpolate_kwargs.call(__this, make_spaceship, [RS_desugar_kwargs({ starting_position: vector(choice(list(range(15["-u"](), 15))), 8, 90["-u"]()), starting_vel: vector(1["-u"](), 1, 0) }),]); "214"; spaceship_4 = RS_interpolate_kwargs.call(__this, make_spaceship, [RS_desugar_kwargs({ starting_position: vector(choice(list(range(15["-u"](), 15))), 8, 130["-u"]()), starting_vel: vector(1["-u"](), 1, 0) }),]); "215"; spaceship_5 = RS_interpolate_kwargs.call(__this, make_spaceship, [RS_desugar_kwargs({ starting_position: vector(choice(list(range(15["-u"](), 15))), 8, 170["-u"]()), starting_vel: vector(1["-u"](), 1, 0) }),]); "216"; spaceship_6 = RS_interpolate_kwargs.call(__this, make_spaceship, [RS_desugar_kwargs({ starting_position: vector(choice(list(range(15["-u"](), 15))), 8, 210["-u"]()), starting_vel: vector(1["-u"](), 1, 0) }),]); "217"; spaceship_7 = RS_interpolate_kwargs.call(__this, make_spaceship, [RS_desugar_kwargs({ starting_position: vector(choice(list(range(15["-u"](), 15))), 8, 250["-u"]()), starting_vel: vector(1["-u"](), 1, 0) }),]); "218"; spaceship_L = RS_list_decorate([spaceship_1,spaceship_2,spaceship_3,spaceship_5,spaceship_6,spaceship_7,]); "219"; shroom_counter = 0; "220"; mario_counter = 0; "222"; print("Welcome to Space Race! You are a magical ball that must navigate this space track."); "223"; print("Watch out for a head on collison with the moving blocks.... The evil Marios will cause you to restart if touched..."); "224"; print("Luckily, you are equipped with a space gun: activate the gun with the space bar to eliminate the Marios."); "225"; print("The toad heads (shroomie bois) do nothing to you, but you can gain shroom points by touching them!"); "226"; print("Good space racing!"); "228"; return (function ___(__break) { var __more; var __loop = __cb(_, __frame, 0, 0, function __$main() { __more = false; var __2 = true; if (__2) { "229"; return rate(RATE, __cb(_, __frame, 466, 8, function __$main() { "232"; RS_Iter1 = RS_Iterable(range(len(alien_L))); for (RS_Index1 = 0; RS_Index1["<"](RS_Iter1.length); RS_Index1++) { i = RS_Iter1[RS_Index1]; "233"; alien_L[((((typeof i === "number") && i["<"](0))) ? alien_L.length["+"](i) : i)].pos = alien_L[((((typeof i === "number") && i["<"](0))) ? alien_L.length["+"](i) : i)].pos["+="](alien_L[((((typeof i === "number") && i["<"](0))) ? alien_L.length["+"](i) : i)].vel["*"](dt)); "234"; alien_collide(alien_L[((((typeof i === "number") && i["<"](0))) ? alien_L.length["+"](i) : i)]); }; "235"; ball.vel = ball.vel["*="](friction); "237"; RS_Iter2 = RS_Iterable(range(len(mario_L))); for (RS_Index2 = 0; RS_Index2["<"](RS_Iter2.length); RS_Index2++) { i = RS_Iter2[RS_Index2]; "238"; mario_L[((((typeof i === "number") && i["<"](0))) ? mario_L.length["+"](i) : i)].pos = mario_L[((((typeof i === "number") && i["<"](0))) ? mario_L.length["+"](i) : i)].pos["+="](mario_L[((((typeof i === "number") && i["<"](0))) ? mario_L.length["+"](i) : i)].vel["*"](dt)); "240"; mario_counter = mario_counter["+"](mario_collide(mario_L[((((typeof i === "number") && i["<"](0))) ? mario_L.length["+"](i) : i)], mario_counter)); }; "243"; ball.pos = ball.pos["+"](ball.vel["*"](dt)); "245"; bullet.vel = vec(0, 0, 10["-u"]()); "246"; bullet.pos = bullet.pos["+="](bullet.vel["*"](bulletdt)); "247"; RS_Iter3 = RS_Iterable(range(len(second_block))); for (RS_Index3 = 0; RS_Index3["<"](RS_Iter3.length); RS_Index3++) { i = RS_Iter3[RS_Index3]; "248"; row2_collide(second_block[((((typeof i === "number") && i["<"](0))) ? second_block.length["+"](i) : i)]); "249"; second_block[((((typeof i === "number") && i["<"](0))) ? second_block.length["+"](i) : i)].pos = second_block[((((typeof i === "number") && i["<"](0))) ? second_block.length["+"](i) : i)].pos["+="](second_block[((((typeof i === "number") && i["<"](0))) ? second_block.length["+"](i) : i)].vel["*"](dt)); }; "254"; if (ball.pos.z["-"](wallD.pos.z)["<"](35)) { "255"; t2 = clock(); "256"; print("Congratulations! You finished the game!"); "257"; print("Total Time: "["+"](str(t2["-"](t1)))["+"](" seconds!")); "258"; print("Number of shrooms infected: "["+"](shroom_counter)); "259"; print("Number of Marios destroyed: "["+"](mario_counter)); "260"; return __break(); } ; "263"; corral_collide(ball); "264"; bullet_collide(bullet); "265"; RS_Iter4 = RS_Iterable(range(len(spaceship_L))); for (RS_Index4 = 0; RS_Index4["<"](RS_Iter4.length); RS_Index4++) { i = RS_Iter4[RS_Index4]; "266"; space_collide(spaceship_L[((((typeof i === "number") && i["<"](0))) ? spaceship_L.length["+"](i) : i)]); "267"; spaceship_L[((((typeof i === "number") && i["<"](0))) ? spaceship_L.length["+"](i) : i)].pos = spaceship_L[((((typeof i === "number") && i["<"](0))) ? spaceship_L.length["+"](i) : i)].pos["+"](spaceship_L[((((typeof i === "number") && i["<"](0))) ? spaceship_L.length["+"](i) : i)].vel["*"](spacedt)); }; "269"; RS_Iter5 = RS_Iterable(shrooms_list); for (RS_Index5 = 0; RS_Index5["<"](RS_Iter5.length); RS_Index5++) { shroom = RS_Iter5[RS_Index5]; "270"; if (mag(ball.pos["-"](shroom.pos))["<"](0.8)) { "271"; shroom.color = vector(0.5, 0, 5, 0.5); "272"; shroom.pos = vector(shroom.pos.x, 3.5, shroom.pos.z); "273"; shroom_counter = shroom_counter["+"](1); "274"; print("Number of shrooms infected: "["+"](shroom_counter)); } ; }; while (__more) { __loop(); }; __more = true; }, true)); } else { __break(); } ; }); do { __loop(); } while (__more); __more = true; })(function __$main() { "282"; if (!keydown_fun.__argnames__) { Object.defineProperties(keydown_fun, { __argnames__: { value: ["event",] } }); } ; "304"; if (!choice.__argnames__) { Object.defineProperties(choice, { __argnames__: { value: ["L",] } }); } ; "309"; if (!randint.__argnames__) { Object.defineProperties(randint, { __argnames__: { value: ["low","hi",] } }); } ; "318"; "328"; if (!corral_collide.__argnames__) { Object.defineProperties(corral_collide, { __argnames__: { value: ["ball",] } }); } ; "393"; if (!alien_collide.__argnames__) { Object.defineProperties(alien_collide, { __argnames__: { value: ["ball",] } }); } ; "409"; if (!row2_collide.__argnames__) { Object.defineProperties(row2_collide, { __argnames__: { value: ["ball",] } }); } ; "423"; if (!space_collide.__argnames__) { Object.defineProperties(space_collide, { __argnames__: { value: ["ball",] } }); } ; "449"; if (!mario_collide.__argnames__) { Object.defineProperties(mario_collide, { __argnames__: { value: ["mario","mario_counter",] } }); } ; "480"; if (!bullet_collide.__argnames__) { Object.defineProperties(bullet_collide, { __argnames__: { value: ["bullet",] } }); } ; "499"; ; }); }, true)); });};
+if (!main.__argnames__) { Object.defineProperties(main, {
+    __argnames__: { value: ["_",] } });};
+
+;$(function(){ window.__context = { glowscript_container: $("#glowscript").removeAttr("id") }; main(__func) })})()
+//--><!]]></script>
+</div>
