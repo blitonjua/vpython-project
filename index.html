@@ -14,10 +14,9 @@
  if (document.readyState === "loading") {
    document.getElementById("loading").innerHTML = "<i>loading</i>";
    console.log("LOAD-IN")
- } else if (document.readyState === "interactive") {
-   console.log("loaded!")
-  
- }
+ } 
+ 
+
  <!--//--><![CDATA[//><!--
 ;(function() {fontloading();
  var __rt=srequire('streamline/lib/callbacks/runtime').runtime(__filename, false),__func=__rt.__func,__cb=__rt.__cb; var RS_modules = {};
@@ -594,7 +593,9 @@ if (!main.__argnames__) { Object.defineProperties(main, {
 
 ;$(function(){ window.__context = { glowscript_container: $("#glowscript").removeAttr("id") }; main(__func) })})()
 //--><!]]>
- 
+
+       document.getElementById("loading").innerHTML = "<i></i>";
+
       
  </script>
 </div>
