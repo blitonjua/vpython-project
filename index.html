@@ -11,14 +11,6 @@
 <script type="text/javascript" src="https://s3.amazonaws.com/glowscript/package/RSrun.2.7.min.js"></script>
 <script type="text/javascript">
  
- if (document.readyState === "loading") {
-//    document.getElementById("loading").innerHTML = "<i>loading</i>";
-//    console.log("LOAD-IN")
-      console.log("loading", document.readyState);
-  
- } 
- console.log("not loading", document.readyState);
-
  <!--//--><![CDATA[//><!--
 ;(function() {fontloading();
  var __rt=srequire('streamline/lib/callbacks/runtime').runtime(__filename, false),__func=__rt.__func,__cb=__rt.__cb; var RS_modules = {};
@@ -599,5 +591,14 @@ if (!main.__argnames__) { Object.defineProperties(main, {
        document.getElementById("loading").innerHTML = "<i></i>";
 
       
+ </script>
+ <script type="text/javascript">
+  if (document.readyState === "loading") {
+//    document.getElementById("loading").innerHTML = "<i>loading</i>";
+//    console.log("LOAD-IN")
+      console.log("loading", document.readyState);
+  
+ } 
+ console.log("not loading", document.readyState);
  </script>
 </div>
